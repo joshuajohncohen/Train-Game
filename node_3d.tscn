@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://mgp02mkor0at"]
 
 [ext_resource type="Script" uid="uid://btayrm38ieq03" path="res://move_player.gd" id="1_a202f"]
-[ext_resource type="Script" uid="uid://b2ey27e4a6uaq" path="res://train_movement.gd" id="2_a0tk4"]
-[ext_resource type="PackedScene" uid="uid://dd1bdyx4u7gdg" path="res://train.tscn" id="2_noarx"]
+[ext_resource type="Script" path="res://train_movement.gd" id="2_a0tk4"]
+[ext_resource type="PackedScene" uid="uid://b72qdy460qk6k" path="res://train.tscn" id="2_noarx"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a202f"]
 
@@ -38,13 +38,12 @@ shape = SubResource("CapsuleShape3D_noarx")
 
 [node name="Camera3D" type="Camera3D" parent="Player/CharacterBody3D/Head" unique_id=570852050]
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Player/CharacterBody3D/Head/Camera3D" unique_id=1597589547]
+[node name="SpotLight3D" type="SpotLight3D" parent="Player/CharacterBody3D/Head/Camera3D" unique_id=1365019442]
 shadow_enabled = true
-shadow_bias = 0.197
-shadow_normal_bias = 0.995
-spot_range = 12.001
-spot_attenuation = -0.32
-spot_angle = 53.29
+distance_fade_enabled = true
+spot_range = 14.142
+spot_attenuation = 0.21
+spot_angle = 63.38
 
 [node name="Floor" type="Node3D" parent="." unique_id=1435124722]
 transform = Transform3D(7.653977, 0, 0, 0, 1, 0, 0, 0, 2.624833, 0, 0, 0)
@@ -92,7 +91,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 curve = SubResource("Curve3D_a0tk4")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1752352979]
-transform = Transform3D(-0.9999998, 0, 1.5099577e-07, 0, 1, 0, -1.5099577e-07, 0, -0.9999998, 13, 0, -20)
+transform = Transform3D(-0.9999998, 0, -8.742276e-08, 0, 1, 0, 8.742276e-08, 0, -0.9999998, 13, 0, -20)
 script = ExtResource("2_a0tk4")
 
 [node name="Root" parent="Path3D/PathFollow3D" unique_id=1014513635 instance=ExtResource("2_noarx")]
@@ -102,7 +101,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 0)
 curve = SubResource("Curve3D_a0tk4")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D2" unique_id=801259102]
-transform = Transform3D(-0.9999998, 0, 1.5099577e-07, 0, 1, 0, -1.5099577e-07, 0, -0.9999998, 13, 0, -16.00012)
+transform = Transform3D(-0.9999998, 0, -8.742276e-08, 0, 1, 0, 8.742276e-08, 0, -0.9999998, 13, 0, -16.00012)
 progress = 4.0
 script = ExtResource("2_a0tk4")
 
