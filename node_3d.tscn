@@ -23,8 +23,7 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_i5arm"]
-size = Vector3(1, 6.4526367, 11.368134)
+[sub_resource type="BoxShape3D" id="BoxShape3D_jka67"]
 
 [node name="Node3D" type="Node3D" unique_id=589688143]
 script = ExtResource("1_r3fl7")
@@ -110,9 +109,8 @@ script = ExtResource("2_a0tk4")
 [node name="Root" parent="Train_node/Path3D/PathFollow3D" unique_id=1014513635 instance=ExtResource("2_noarx")]
 
 [node name="Area3D" type="Area3D" parent="Train_node" unique_id=1438852111]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.062014, 0, 0)
+transform = Transform3D(0.9440352, 0, 0, 0, 6.16614, 0, 0, 0, 13.197913, 17.062014, 1.2699568, 0)
 script = ExtResource("5_jka67")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Train_node/Area3D" unique_id=441463741]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14609528, 1.638969, -0.2652111)
-shape = SubResource("BoxShape3D_i5arm")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Train_node/Area3D" unique_id=561026523]
+shape = SubResource("BoxShape3D_jka67")
