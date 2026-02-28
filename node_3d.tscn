@@ -19,6 +19,12 @@ sky_material = SubResource("ProceduralSkyMaterial_i5arm")
 [sub_resource type="Environment" id="Environment_jsk3o"]
 background_mode = 2
 sky = SubResource("Sky_wc5p8")
+glow_enabled = true
+fog_enabled = true
+fog_mode = 1
+fog_density = 1.0
+fog_depth_begin = 0.0
+fog_depth_end = 50.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a202f"]
 
