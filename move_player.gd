@@ -1,7 +1,7 @@
 extends CharacterBody3D
 # https://opensourcegamers.com/wp-blog/2024/08/24/how-to-make-a-simple-3d-player-in-godot-4-0/
 const SPEED = 10
-const JUMP_VELOCITY = 10
+const JUMP_VELOCITY = 7
 const SENSITIVITY = .010
 #Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
