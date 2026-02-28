@@ -17,7 +17,7 @@ point_count = 2
 script = ExtResource("1_uj664")
 
 [node name="Path3D" type="Path3D" parent="." unique_id=1070195047]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.057878, 1, 0)
 curve = SubResource("Curve3D_a0tk4")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1112442242]
@@ -28,7 +28,7 @@ script = ExtResource("1_e5103")
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1013682193]
-transform = Transform3D(0.9440352, 0, 0, 0, 6.16614, 0, 0, 0, 13.197913, 17.062014, 1.2699568, 0)
+transform = Transform3D(0.9440352, 0, 0, 0, 6.16614, 0, 0, 0, 13.197913, 4.004136, 1.2699568, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1309681689]
 shape = SubResource("BoxShape3D_jka67")

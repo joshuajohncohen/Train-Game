@@ -11,5 +11,5 @@ func _process(delta: float) -> void:
 	var camera = get_viewport().get_camera_3d()
 	
 	if camera:
-		if global_position.x < (camera.global_position.x - 40.0):
+		if global_position.x < (camera.global_position.x - 5.0):
 			queue_free()

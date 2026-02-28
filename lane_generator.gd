@@ -3,9 +3,9 @@ extends Node3D
 @export var lane_scene: PackedScene
 @export var player: Node3D
 
-var farthest_track: float = 0.0
+var farthest_track: float = 10.0
 var lane_gap: float = 10.0
-var removal_threshold: int = 4
+var removal_threshold: int = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
