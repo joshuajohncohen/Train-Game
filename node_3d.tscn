@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bs7av6emv3evs" path="res://Player_Spawn.gd" id="1_r3fl7"]
 [ext_resource type="Script" uid="uid://b2ey27e4a6uaq" path="res://train_movement.gd" id="2_a0tk4"]
 [ext_resource type="PackedScene" uid="uid://b72qdy460qk6k" path="res://train.tscn" id="2_noarx"]
+[ext_resource type="Script" uid="uid://csi882o87r541" path="res://obtain_point.gd" id="5_jka67"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a202f"]
 
@@ -21,6 +22,9 @@ _data = {
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i5arm"]
+size = Vector3(1, 6.4526367, 11.368134)
 
 [node name="Node3D" type="Node3D" unique_id=589688143]
 script = ExtResource("1_r3fl7")
@@ -93,12 +97,22 @@ shape = SubResource("BoxShape3D_a0tk4")
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_noarx")
 
-[node name="Path3D" type="Path3D" parent="." unique_id=496932422]
+[node name="Train_node" type="Node3D" parent="." unique_id=175581236]
+
+[node name="Path3D" type="Path3D" parent="Train_node" unique_id=496932422]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 curve = SubResource("Curve3D_a0tk4")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1752352979]
+[node name="PathFollow3D" type="PathFollow3D" parent="Train_node/Path3D" unique_id=1752352979]
 transform = Transform3D(-0.9999998, 0, -8.742276e-08, 0, 1, 0, 8.742276e-08, 0, -0.9999998, 13, 0, -20)
 script = ExtResource("2_a0tk4")
 
-[node name="Root" parent="Path3D/PathFollow3D" unique_id=1014513635 instance=ExtResource("2_noarx")]
+[node name="Root" parent="Train_node/Path3D/PathFollow3D" unique_id=1014513635 instance=ExtResource("2_noarx")]
+
+[node name="Area3D" type="Area3D" parent="Train_node" unique_id=1438852111]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.062014, 0, 0)
+script = ExtResource("5_jka67")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Train_node/Area3D" unique_id=441463741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14609528, 1.638969, -0.2652111)
+shape = SubResource("BoxShape3D_i5arm")
