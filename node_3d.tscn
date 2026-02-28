@@ -92,7 +92,6 @@ mesh = SubResource("BoxMesh_noarx")
 [node name="Spawnpoint_train" type="Node3D" parent="." unique_id=402115368]
 transform = Transform3D(1, 0, -3.5527137e-15, 0, 1, 0, 0, 0, 1, 4.2480288, 0, -10.044345)
 script = ExtResource("2_a0tk4")
-spawn_interval = null
 
 [node name="train" type="Node3D" parent="Spawnpoint_train" unique_id=1820246189]
 transform = Transform3D(-4.371138e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 4.498103, 0, 10.044345)
