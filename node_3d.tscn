@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://mgp02mkor0at"]
 
 [ext_resource type="Script" uid="uid://btayrm38ieq03" path="res://move_player.gd" id="1_a202f"]
-[ext_resource type="Script" uid="uid://dktnvo87s0vou" path="res://spawn_train.gd" id="2_a0tk4"]
-[ext_resource type="Script" uid="uid://cvd556xx6xoj3" path="res://move_train.gd" id="2_noarx"]
+[ext_resource type="PackedScene" uid="uid://dd1bdyx4u7gdg" path="res://train.tscn" id="2_noarx"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a202f"]
 
@@ -14,14 +13,12 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_noarx"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_noarx"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_r3fl7"]
-
-[sub_resource type="TextMesh" id="TextMesh_jka67"]
-text = "TRAIN
-"
-font_size = 127
+[sub_resource type="Curve3D" id="Curve3D_a0tk4"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 13, 0, -20, 0, 0, 0, 0, 0, 0, 13, 0, 20),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
 
 [node name="Node3D" type="Node3D" unique_id=589688143]
 
@@ -89,24 +86,10 @@ shape = SubResource("BoxShape3D_a0tk4")
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_noarx")
 
-[node name="Spawnpoint_train" type="Node3D" parent="." unique_id=402115368]
-transform = Transform3D(1, 0, -3.5527137e-15, 0, 1, 0, 0, 0, 1, 4.2480288, 0, -10.044345)
-script = ExtResource("2_a0tk4")
+[node name="Path3D" type="Path3D" parent="." unique_id=496932422]
+curve = SubResource("Curve3D_a0tk4")
 
-[node name="train" type="Node3D" parent="Spawnpoint_train" unique_id=1820246189]
-transform = Transform3D(-4.371138e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 4.498103, 0, 10.044345)
-script = ExtResource("2_noarx")
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1752352979]
+transform = Transform3D(-0.9999998, 0, 1.5099577e-07, 0, 1, 0, -1.5099577e-07, 0, -0.9999998, 13, 0, -20)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Spawnpoint_train/train" unique_id=505790218]
-physics_material_override = SubResource("PhysicsMaterial_noarx")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Spawnpoint_train/train/StaticBody3D" unique_id=1577901761]
-transform = Transform3D(3.7719138, 0, 3.5527137e-15, 0, 1, 0, 0, 0, 0.98345995, 0, 0, 0)
-shape = SubResource("BoxShape3D_r3fl7")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Spawnpoint_train/train/StaticBody3D/CollisionShape3D" unique_id=1724459881]
-transform = Transform3D(0.26511735, 0, 0, 0, 1, 0, -3.5527137e-15, 0, 1.0168179, 0, 0, 0)
-mesh = SubResource("TextMesh_jka67")
-
-[node name="Deathpoint_train" type="Node3D" parent="Spawnpoint_train" unique_id=547660133]
-transform = Transform3D(1, 0, 3.5527137e-15, 0, 1, 0, 0, 0, 1, 0, 0, 19.131453)
+[node name="Root" parent="Path3D/PathFollow3D" unique_id=1014513635 instance=ExtResource("2_noarx")]
