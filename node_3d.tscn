@@ -102,14 +102,3 @@ transform = Transform3D(-0.9999998, 0, -8.742276e-08, 0, 1, 0, 8.742276e-08, 0, 
 script = ExtResource("2_a0tk4")
 
 [node name="Root" parent="Path3D/PathFollow3D" unique_id=1014513635 instance=ExtResource("2_noarx")]
-
-[node name="Path3D2" type="Path3D" parent="." unique_id=752283565]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 0)
-curve = SubResource("Curve3D_a0tk4")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Path3D2" unique_id=801259102]
-transform = Transform3D(-0.9999998, 0, -8.742276e-08, 0, 1, 0, 8.742276e-08, 0, -0.9999998, 13, 0, -16.00012)
-progress = 4.0
-script = ExtResource("2_a0tk4")
-
-[node name="Root" parent="Path3D2/PathFollow3D" unique_id=1249050680 instance=ExtResource("2_noarx")]
