@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://btayrm38ieq03" path="res://move_player.gd" id="1_a202f"]
 [ext_resource type="Script" uid="uid://bs7av6emv3evs" path="res://Player_Spawn.gd" id="1_r3fl7"]
-[ext_resource type="PackedScene" path="res://train_tree.tscn" id="3_a0tk4"]
 [ext_resource type="Script" uid="uid://df0wsu846tvce" path="res://change_points_text.gd" id="3_r3fl7"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a202f"]
