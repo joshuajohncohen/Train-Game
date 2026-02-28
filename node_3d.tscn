@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://btayrm38ieq03" path="res://move_player.gd" id="1_a202f"]
 [ext_resource type="Script" uid="uid://bs7av6emv3evs" path="res://Player_Spawn.gd" id="1_r3fl7"]
-[ext_resource type="PackedScene" path="res://train_tree.tscn" id="3_a0tk4"]
+[ext_resource type="PackedScene" uid="uid://b6w2x236idu2m" path="res://train_tree.tscn" id="3_a0tk4"]
+[ext_resource type="Script" uid="uid://disn2pttvhcw5" path="res://lane_generator.gd" id="4_r3fl7"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a202f"]
 
@@ -88,3 +89,8 @@ mesh = SubResource("BoxMesh_noarx")
 [node name="Train_node" parent="." unique_id=1116768144 instance=ExtResource("3_a0tk4")]
 
 [node name="Pointgiver" type="Node3D" parent="." unique_id=702121204]
+
+[node name="LaneGenerator" type="Node3D" parent="." unique_id=1526703825 node_paths=PackedStringArray("player")]
+script = ExtResource("4_r3fl7")
+lane_scene = ExtResource("3_a0tk4")
+player = NodePath("../Player_Spawn/Player")
