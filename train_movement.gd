@@ -12,8 +12,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	loop_movement(delta)
-
+	
 func loop_movement(delta):
+	progress_ratio += speed * delta
+
+func bounce_movement(delta):
 	if progress_ratio < target:
 		target = 0.99
 		progress_ratio += delta * speed
