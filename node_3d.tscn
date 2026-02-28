@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://btayrm38ieq03" path="res://move_player.gd" id="1_a202f"]
 [ext_resource type="Script" uid="uid://dktnvo87s0vou" path="res://spawn_train.gd" id="2_a0tk4"]
-[ext_resource type="PackedScene" uid="uid://badwdxb1iatvj" path="res://train_object.tscn" id="3_a0tk4"]
+[ext_resource type="Script" uid="uid://cvd556xx6xoj3" path="res://move_train.gd" id="2_noarx"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a202f"]
 
@@ -89,26 +89,25 @@ shape = SubResource("BoxShape3D_a0tk4")
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_noarx")
 
-[node name="TrainController" type="Node3D" parent="." unique_id=1226066350]
+[node name="Spawnpoint_train" type="Node3D" parent="." unique_id=402115368]
+transform = Transform3D(1, 0, -3.5527137e-15, 0, 1, 0, 0, 0, 1, 4.2480288, 0, -10.044345)
 script = ExtResource("2_a0tk4")
-block_pkg = ExtResource("3_a0tk4")
+spawn_interval = null
 
-[node name="Spawnpoint_train" type="Node3D" parent="TrainController" unique_id=402115368]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2480288, 0, -10.044345)
+[node name="train" type="Node3D" parent="Spawnpoint_train" unique_id=1820246189]
+transform = Transform3D(-4.371138e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 4.498103, 0, 10.044345)
+script = ExtResource("2_noarx")
 
-[node name="Deathpoint_train" type="Node3D" parent="TrainController" unique_id=547660133]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2480288, 0, 9.087108)
-
-[node name="train" type="Node3D" parent="TrainController" unique_id=1820246189]
-transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 8.746132, 0, 0)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="TrainController/train" unique_id=505790218]
+[node name="StaticBody3D" type="StaticBody3D" parent="Spawnpoint_train/train" unique_id=505790218]
 physics_material_override = SubResource("PhysicsMaterial_noarx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TrainController/train/StaticBody3D" unique_id=1577901761]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Spawnpoint_train/train/StaticBody3D" unique_id=1577901761]
 transform = Transform3D(3.7719138, 0, 3.5527137e-15, 0, 1, 0, 0, 0, 0.98345995, 0, 0, 0)
 shape = SubResource("BoxShape3D_r3fl7")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TrainController/train/StaticBody3D/CollisionShape3D" unique_id=1724459881]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Spawnpoint_train/train/StaticBody3D/CollisionShape3D" unique_id=1724459881]
 transform = Transform3D(0.26511735, 0, 0, 0, 1, 0, -3.5527137e-15, 0, 1.0168179, 0, 0, 0)
 mesh = SubResource("TextMesh_jka67")
+
+[node name="Deathpoint_train" type="Node3D" parent="Spawnpoint_train" unique_id=547660133]
+transform = Transform3D(1, 0, 3.5527137e-15, 0, 1, 0, 0, 0, 1, 0, 0, 19.131453)

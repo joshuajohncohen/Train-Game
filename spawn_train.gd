@@ -1,9 +1,8 @@
 extends Node3D
 
-@export var block_pkg: PackedScene # Drag your block.tscn here
 @export var spawn_interval: float = 2.0
-
-@onready var spawn_point = $Spawnpoint_train
+@onready var train_block = $train
+@onready var spawn_point = self
 @onready var death_point = $Deathpoint_train
 
 func _ready():
@@ -15,8 +14,8 @@ func _ready():
 	timer.start()
 
 func _on_timer_timeout():
-	if block_pkg:
-		var new_block = block_pkg.instantiate()
+	if train_block:
+		var new_block = train_block.instantiate()
 		get_parent().add_child(new_block) # Add to world, not the spawner
 		
 		# Set initial position and give it the destination
