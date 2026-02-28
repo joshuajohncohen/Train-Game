@@ -58,7 +58,7 @@ lane_scene = ExtResource("3_a0tk4")
 player = NodePath("../Player_Spawn/Player")
 
 [node name="walls" type="Node3D" parent="." unique_id=139362671 node_paths=PackedStringArray("player")]
-transform = Transform3D(2.4648108, 6.3153337e-16, -3.3075234e-22, 0, -9.576004e-09, -2.6248333, -7.1054274e-15, 0.21907343, -1.1473511e-07, 8.815609, 0, -9.276202)
+transform = Transform3D(7.0965858, 6.3153337e-16, -3.3075234e-22, 0, -9.576004e-09, -2.6248333, -2.0457665e-14, 0.21907343, -1.1473511e-07, 22.30697, 0, -9.276202)
 script = ExtResource("3_i5arm")
 player = NodePath("../Player_Spawn/Player/CharacterBody3D")
 
@@ -87,13 +87,14 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_noarx")
 
 [node name="Floor" type="Node3D" parent="walls" unique_id=1435124722]
-transform = Transform3D(1, -1.1129693e-22, 0, 0, -1.3463122e-08, 16.475378, -3.6135355e-22, -0.30800012, -7.2016167e-07, 1.0460052, 41.334564, -1.5079812e-07)
+transform = Transform3D(0.94279736, -1.1129693e-22, 0, 6.7762636e-21, -1.3463122e-08, 16.475378, -3.4068325e-22, -0.30800012, -7.2016167e-07, 0.11663985, 41.334564, -1.5079812e-07)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="walls/Floor" unique_id=1143386454]
+transform = Transform3D(1.0546812, -1.2621775e-29, -2.1175824e-22, 0, 1, -4.5474735e-13, 0, 0, 1, -0.13843584, 0, 0)
 physics_material_override = SubResource("PhysicsMaterial_a202f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="walls/Floor/StaticBody3D" unique_id=1160533148]
-transform = Transform3D(9, 0, 0, 0, 0.517, 0, 0, 0, 3.199, 0, -1.6168349, 0)
+transform = Transform3D(9, -1.2621775e-29, -5.5904175e-20, 0, 0.517, -6.184564e-11, 0, 0, 3.199, 0, -1.616835, -3.7252903e-09)
 shape = SubResource("BoxShape3D_a0tk4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="walls/Floor/StaticBody3D/CollisionShape3D" unique_id=173914000]
