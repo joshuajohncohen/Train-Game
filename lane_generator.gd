@@ -5,7 +5,7 @@ extends Node3D
 
 var farthest_track: float = 10.0
 var lane_gap: float = 10.0
-var removal_threshold: int = 2
+var removal_threshold: int = 20
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

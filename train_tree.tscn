@@ -1,8 +1,9 @@
-[gd_scene format=3 uid="uid://b6w2x236idu2m"]
+[gd_scene format=3 uid="uid://d2svo3mojtoi3"]
 
 [ext_resource type="Script" uid="uid://b2ey27e4a6uaq" path="res://train_movement.gd" id="1_e5103"]
 [ext_resource type="Script" uid="uid://dv3rb77j7640y" path="res://delete_trains.gd" id="1_uj664"]
-[ext_resource type="PackedScene" uid="uid://dd1bdyx4u7gdg" path="res://train.tscn" id="2_uj664"]
+[ext_resource type="PackedScene" uid="uid://b72qdy460qk6k" path="res://train.tscn" id="2_uj664"]
+[ext_resource type="Script" uid="uid://b2qsjmbyyk2n1" path="res://pointgiver.gd" id="4_unhk6"]
 
 [sub_resource type="Curve3D" id="Curve3D_a0tk4"]
 _data = {
@@ -21,7 +22,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.057878, 1, 0)
 curve = SubResource("Curve3D_a0tk4")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1112442242]
-transform = Transform3D(-0.9999998, 0, 1.5099577e-07, 0, 1, 0, -1.5099577e-07, 0, -0.9999998, 13, 0, -20)
+transform = Transform3D(-0.9999998, 0, -8.742276e-08, 0, 1, 0, 8.742276e-08, 0, -0.9999998, 13, 0, -20)
 script = ExtResource("1_e5103")
 
 [node name="Root" parent="Path3D/PathFollow3D" unique_id=1014513635 instance=ExtResource("2_uj664")]
@@ -29,6 +30,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1013682193]
 transform = Transform3D(0.9440352, 0, 0, 0, 6.16614, 0, 0, 0, 13.197913, 4.004136, 1.2699568, 0)
+script = ExtResource("4_unhk6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1309681689]
 shape = SubResource("BoxShape3D_jka67")
