@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://badwdxb1iatvj"]
+
+[ext_resource type="PackedScene" uid="uid://dg4686lsggaje" path="res://Train.gltf" id="1_45gfi"]
+[ext_resource type="Script" uid="uid://cyimlqmnv4u3m" path="res://train_object.gd" id="2_61vea"]
+
+[node name="Root" unique_id=1722310106 instance=ExtResource("1_45gfi")]
+script = ExtResource("2_61vea")
