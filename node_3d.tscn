@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://mgp02mkor0at"]
 
 [ext_resource type="Script" uid="uid://btayrm38ieq03" path="res://move_player.gd" id="1_a202f"]
+[ext_resource type="Script" uid="uid://bs7av6emv3evs" path="res://Player_Spawn.gd" id="1_r3fl7"]
 [ext_resource type="Script" uid="uid://b2ey27e4a6uaq" path="res://train_movement.gd" id="2_a0tk4"]
-[ext_resource type="PackedScene" uid="uid://dd1bdyx4u7gdg" path="res://train.tscn" id="2_noarx"]
+[ext_resource type="PackedScene" uid="uid://b72qdy460qk6k" path="res://train.tscn" id="2_noarx"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a202f"]
 
@@ -22,8 +23,13 @@ _data = {
 point_count = 2
 
 [node name="Node3D" type="Node3D" unique_id=589688143]
+script = ExtResource("1_r3fl7")
+
+[node name="Player_Spawn" type="Node3D" parent="." unique_id=1305488637]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4313607, 0)
 
 [node name="Player" type="Node3D" parent="." unique_id=389156406]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0, 0, 0)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="Player" unique_id=831469459]
 script = ExtResource("1_a202f")
@@ -92,7 +98,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 curve = SubResource("Curve3D_a0tk4")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1752352979]
-transform = Transform3D(-0.9999998, 0, 1.5099577e-07, 0, 1, 0, -1.5099577e-07, 0, -0.9999998, 13, 0, -20)
+transform = Transform3D(-0.9999998, 0, -8.742276e-08, 0, 1, 0, 8.742276e-08, 0, -0.9999998, 13, 0, -20)
 script = ExtResource("2_a0tk4")
 
 [node name="Root" parent="Path3D/PathFollow3D" unique_id=1014513635 instance=ExtResource("2_noarx")]
@@ -102,7 +108,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 0)
 curve = SubResource("Curve3D_a0tk4")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D2" unique_id=801259102]
-transform = Transform3D(-0.9999998, 0, 1.5099577e-07, 0, 1, 0, -1.5099577e-07, 0, -0.9999998, 13, 0, -16.00012)
+transform = Transform3D(-0.9999998, 0, -8.742276e-08, 0, 1, 0, 8.742276e-08, 0, -0.9999998, 13, 0, -16.00012)
 progress = 4.0
 script = ExtResource("2_a0tk4")
 
