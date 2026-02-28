@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://mgp02mkor0at"]
+
+[ext_resource type="Script" uid="uid://btayrm38ieq03" path="res://move_player.gd" id="1_a202f"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_a202f"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_noarx"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a202f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a0tk4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_noarx"]
+
+[node name="Node3D" type="Node3D" unique_id=589688143]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=389156406]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Node3D" unique_id=831469459]
+script = ExtResource("1_a202f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/CharacterBody3D" unique_id=1460209983]
+mesh = SubResource("CapsuleMesh_a202f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/CharacterBody3D" unique_id=1254159712]
+shape = SubResource("CapsuleShape3D_noarx")
+
+[node name="Head" type="Node3D" parent="Node3D/CharacterBody3D" unique_id=1852202724]
+
+[node name="Camera3D" type="Camera3D" parent="Node3D/CharacterBody3D/Head" unique_id=570852050]
+
+[node name="Node3D2" type="Node3D" parent="." unique_id=1435124722]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.624833, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D2" unique_id=1143386454]
+physics_material_override = SubResource("PhysicsMaterial_a202f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/StaticBody3D" unique_id=1160533148]
+transform = Transform3D(9.1115675, 0, 0, 0, 0.5226141, 0, 0, 0, 3.2391677, 0, -1.6168349, 0)
+shape = SubResource("BoxShape3D_a0tk4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/StaticBody3D/CollisionShape3D" unique_id=173914000]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_noarx")
