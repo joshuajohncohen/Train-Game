@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://mgp02mkor0at"]
 
 [ext_resource type="Script" uid="uid://btayrm38ieq03" path="res://move_player.gd" id="1_a202f"]
-[ext_resource type="Script" uid="uid://bs7av6emv3evs" path="res://Player_Spawn.gd" id="1_r3fl7"]
-[ext_resource type="Script" uid="uid://b2ey27e4a6uaq" path="res://train_movement.gd" id="2_a0tk4"]
-[ext_resource type="PackedScene" uid="uid://b72qdy460qk6k" path="res://train.tscn" id="2_noarx"]
+[ext_resource type="Script" path="res://Player_Spawn.gd" id="1_r3fl7"]
+[ext_resource type="PackedScene" uid="uid://b6w2x236idu2m" path="res://train_tree.tscn" id="3_a0tk4"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a202f"]
 
@@ -14,15 +13,6 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_a0tk4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_noarx"]
-
-[sub_resource type="Curve3D" id="Curve3D_a0tk4"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 13, 0, -20, 0, 0, 0, 0, 0, 0, 13, 0, 20),
-"tilts": PackedFloat32Array(0, 0)
-}
-point_count = 2
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_jka67"]
 
 [node name="Node3D" type="Node3D" unique_id=589688143]
 script = ExtResource("1_r3fl7")
@@ -95,22 +85,6 @@ shape = SubResource("BoxShape3D_a0tk4")
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_noarx")
 
-[node name="Train_node" type="Node3D" parent="." unique_id=175581236]
-
-[node name="Path3D" type="Path3D" parent="Train_node" unique_id=496932422]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-curve = SubResource("Curve3D_a0tk4")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Train_node/Path3D" unique_id=1752352979]
-transform = Transform3D(-0.9999998, 0, -8.742276e-08, 0, 1, 0, 8.742276e-08, 0, -0.9999998, 13, 0, -20)
-script = ExtResource("2_a0tk4")
-
-[node name="Root" parent="Train_node/Path3D/PathFollow3D" unique_id=1014513635 instance=ExtResource("2_noarx")]
-
-[node name="Area3D" type="Area3D" parent="Train_node" unique_id=1438852111]
-transform = Transform3D(0.9440352, 0, 0, 0, 6.16614, 0, 0, 0, 13.197913, 17.062014, 1.2699568, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Train_node/Area3D" unique_id=561026523]
-shape = SubResource("BoxShape3D_jka67")
+[node name="Train_node" parent="." unique_id=1116768144 instance=ExtResource("3_a0tk4")]
 
 [node name="Pointgiver" type="Node3D" parent="." unique_id=702121204]
