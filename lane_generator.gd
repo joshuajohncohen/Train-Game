@@ -5,7 +5,7 @@ extends Node3D
 
 var farthest_track: float = 10.0
 var lane_gap: float = 10.0
-var removal_threshold: int = 20
+var view_distance: float = 50.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,7 +14,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if player.global_position.x > farthest_track - (lane_gap * removal_threshold): # Is the player ahead of the farthest back track?
+	while farthest_track < player.global_position.x + view_distance:
 		spawn_lane()
 
 func spawn_lane():
