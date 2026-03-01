@@ -1,12 +1,21 @@
 [gd_scene format=3 uid="uid://dfsy8eop082n4"]
 
+[ext_resource type="Script" uid="uid://31j6kq14cdy0" path="res://changetext.gd" id="1_2k3je"]
 [ext_resource type="FontFile" uid="uid://c454jmen48arx" path="res://XBAND Rough.ttf" id="1_pkhjh"]
 [ext_resource type="Script" path="res://startgame.gd" id="2_1xr1c"]
+[ext_resource type="Shader" uid="uid://0fiiackodokv" path="res://shakey.gdshader" id="2_tu0on"]
 [ext_resource type="Texture2D" uid="uid://cmafwwq1ceown" path="res://Splash.jpg" id="3_tu0on"]
 
 [sub_resource type="Theme" id="Theme_50j67"]
 default_font = ExtResource("1_pkhjh")
-default_font_size = 60
+default_font_size = 63
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2k3je"]
+shader = ExtResource("2_tu0on")
+shader_parameter/wiggle = 0.550000026125
+shader_parameter/roll_speed = 2.29200010887
+shader_parameter/scanline_opacity = 0.1290000061275
+shader_parameter/distortion_amount = 0.002000000095
 
 [sub_resource type="Theme" id="Theme_1xr1c"]
 default_font_size = 44
@@ -41,44 +50,88 @@ offset_top = 126.0
 offset_right = 992.0
 offset_bottom = 294.0
 scale = Vector2(1.0036987, 1)
+script = ExtResource("1_2k3je")
 
 [node name="You" type="RichTextLabel" parent="Title" unique_id=151066794]
 layout_mode = 0
-offset_left = 59.999985
-offset_top = 34.5
-offset_right = 201.99998
-offset_bottom = 113.5
+offset_left = 59.778893
+offset_top = -66.0
+offset_right = 201.7789
+offset_bottom = 13.0
 theme = SubResource("Theme_50j67")
 text = "You"
 
 [node name="Wouldnt" type="RichTextLabel" parent="Title" unique_id=1501296928]
 layout_mode = 0
-offset_left = 166.50002
-offset_top = 39.0
-offset_right = 418.0
-offset_bottom = 125.50003
+offset_left = 119.5578
+offset_top = -1.0
+offset_right = 371.0578
+offset_bottom = 85.50003
 theme = SubResource("Theme_50j67")
 text = "Wouldn't"
 
 [node name="Fare" type="RichTextLabel" parent="Title" unique_id=987229345]
 layout_mode = 0
-offset_left = 416.99994
-offset_top = 34.5
-offset_right = 593.49994
-offset_bottom = 112.00002
+offset_left = 341.73605
+offset_top = -69.0
+offset_right = 493.17587
+offset_bottom = 9.0
 theme = SubResource("Theme_50j67")
 text = "Fare
 "
 
 [node name="Evade" type="RichTextLabel" parent="Title" unique_id=1268623254]
 layout_mode = 0
-offset_left = 604.49994
-offset_top = 72.0
-offset_right = 793.0
-offset_bottom = 143.5
+offset_left = 466.27536
+offset_top = 51.0
+offset_right = 654.7754
+offset_bottom = 122.5
 theme = SubResource("Theme_50j67")
 text = "Evade
 "
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Title" unique_id=1905924836]
+
+[node name="ColorRect" type="ColorRect" parent="Title/CanvasLayer" unique_id=362765737]
+material = SubResource("ShaderMaterial_2k3je")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RandomAreas" type="Control" parent="Title" unique_id=141380079]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="YouArea" type="Container" parent="Title/RandomAreas" unique_id=95805314]
+layout_mode = 0
+offset_left = -57.786263
+offset_top = -103.0
+offset_right = 181.32935
+offset_bottom = 40.0
+
+[node name="WouldntArea" type="Container" parent="Title/RandomAreas" unique_id=293623480]
+layout_mode = 0
+offset_left = 115.57254
+offset_top = 2.0
+offset_right = 375.61075
+offset_bottom = 154.0
+
+[node name="FareArea" type="Container" parent="Title/RandomAreas" unique_id=1460086433]
+layout_mode = 0
+offset_left = 362.65863
+offset_top = -111.0
+offset_right = 605.7594
+offset_bottom = 33.0
+
+[node name="EvadeArea" type="Container" parent="Title/RandomAreas" unique_id=2139727118]
+layout_mode = 0
+offset_left = 440.37125
+offset_top = 43.0
+offset_right = 673.5088
+offset_bottom = 169.0
 
 [node name="Menu" type="Control" parent="." unique_id=391910883]
 z_index = 1
