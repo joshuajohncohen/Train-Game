@@ -167,6 +167,8 @@ shape = SubResource("BoxShape3D_a0tk4")
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_noarx")
 
+[node name="Nicer walls" type="Node3D" parent="walls" unique_id=864448624]
+
 [node name="LaneGenerator" type="Node3D" parent="." unique_id=1098479515 node_paths=PackedStringArray("player")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0)
 script = ExtResource("4_r3fl7")
