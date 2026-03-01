@@ -17,7 +17,7 @@ func _ready():
 		set_font_size(text_object)
 	
 func set_font_size(change_font_object):
-	var font_size_random = randf_range(60, 73)
+	var font_size_random = randf_range(60, 75)
 	change_font_object.add_theme_font_size_override("normal_font_size", font_size_random)
 	return font_size_random
 	

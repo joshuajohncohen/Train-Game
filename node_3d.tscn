@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://df0wsu846tvce" path="res://change_points_text.gd" id="3_r3fl7"]
 [ext_resource type="Script" uid="uid://disn2pttvhcw5" path="res://lane_generator.gd" id="4_r3fl7"]
 [ext_resource type="PackedScene" uid="uid://c55yg3om8xjdf" path="res://tunnel.tscn" id="7_wc5p8"]
+[ext_resource type="Texture2D" uid="uid://ctlputlipa7a4" path="res://tile123.webp" id="8_jsk3o"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a202f"]
 
@@ -29,6 +30,11 @@ fog_depth_end = 50.0
 
 [sub_resource type="Theme" id="Theme_i5arm"]
 default_font_size = 48
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4arys"]
+albedo_texture = ExtResource("8_jsk3o")
+uv1_scale = Vector3(4, 12, 4)
+texture_filter = 1
 
 [node name="Node3D" type="Node3D" unique_id=589688143]
 script = ExtResource("1_r3fl7")
@@ -129,6 +135,7 @@ player = NodePath("../Player_Spawn/Player/CharacterBody3D")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("3_i5arm")
 player = NodePath("../Player_Spawn/Player/CharacterBody3D")
+target_material = SubResource("StandardMaterial3D_4arys")
 
 [node name="Node3D" type="Node3D" parent="." unique_id=2090600145]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.007744, 0, 0)
