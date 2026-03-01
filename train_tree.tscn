@@ -99,10 +99,10 @@ shape = SubResource("BoxShape3D_v7ft0")
 mesh = SubResource("BoxMesh_me4yk")
 
 [node name="Root" parent="." unique_id=291205570 instance=ExtResource("6_me4yk")]
-transform = Transform3D(0.9, 0, 0, 0, -8.742278e-08, 0.8, 0, -2, -3.4969112e-08, 0, -1.093, -5)
+transform = Transform3D(0.9, 0, 0, 0, -8.742278e-08, 0.8, 0, -2, -3.4969112e-08, 0, -1.093, -4.5)
 
 [node name="Root2" parent="." unique_id=1761438115 instance=ExtResource("6_me4yk")]
-transform = Transform3D(0.9, 0, 0, 0, -8.742278e-08, 0.8, 0, -2, -3.4969112e-08, 0, -1.093, 3.171)
+transform = Transform3D(0.9, 0, 0, 0, -8.742278e-08, 0.8, 0, -2, -3.4969112e-08, 0, -1.093, 2.671)
 
 [connection signal="body_entered" from="Path3D/PathFollow3D/Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Area3D" to="Pointgiver" method="_on_area_3d_body_entered"]
