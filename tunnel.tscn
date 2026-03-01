@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c55yg3om8xjdf"]
+
+[ext_resource type="PackedScene" uid="uid://h4l744et7tgr" path="res://túnel del metro.gltf" id="1_firpc"]
+
+[node name="Root" unique_id=937189371 instance=ExtResource("1_firpc")]
+
+[node name="Part 1" parent="." index="0" unique_id=1093673878]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0, 0, 0)
