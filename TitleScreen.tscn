@@ -65,8 +65,8 @@ text = "You"
 layout_mode = 0
 offset_left = 119.5578
 offset_top = -1.0
-offset_right = 371.0578
-offset_bottom = 85.50003
+offset_right = 394.54074
+offset_bottom = 100.0
 theme = SubResource("Theme_50j67")
 text = "Wouldn't"
 
@@ -74,8 +74,8 @@ text = "Wouldn't"
 layout_mode = 0
 offset_left = 341.73605
 offset_top = -69.0
-offset_right = 493.17587
-offset_bottom = 9.0
+offset_right = 511.1096
+offset_bottom = 15.0
 theme = SubResource("Theme_50j67")
 text = "Fare
 "
@@ -84,8 +84,8 @@ text = "Fare
 layout_mode = 0
 offset_left = 466.27536
 offset_top = 51.0
-offset_right = 654.7754
-offset_bottom = 122.5
+offset_right = 658.5641
+offset_bottom = 134.0
 theme = SubResource("Theme_50j67")
 text = "Evade
 "

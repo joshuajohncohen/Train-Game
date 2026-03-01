@@ -6,7 +6,12 @@ extends Control
 @onready var evade = $Evade
 @onready var text_objects = [you, wouldnt, fare, evade]
 
+@onready var youarea = $RandomAreas/YouArea
+@onready var wouldntarea = $RandomAreas/WouldntArea
+@onready var farearea = $RandomAreas/FareArea
+@onready var evadearea = $RandomAreas/EvadeArea
 
+@onready var random_areas = [youarea, wouldntarea, farearea, evadearea]
 
 func _ready():
 	# Enable BBCode programmatically if not done in inspector
@@ -17,9 +22,23 @@ func _ready():
 	
 	for text_object in text_objects:
 		set_font_size(text_object)
+		move_randomly(text_object)
 	
 func set_font_size(change_font_object):
 	var font_size_random = randf_range(60, 73)
 	change_font_object.add_theme_font_size_override("normal_font_size", font_size_random)
 	return font_size_random
 	
+func move_randomly(move_text_object):
+	var index = text_objects.find(move_text_object)
+
+	if index != -1:
+		print("Found at position: ", index)
+	else:
+		print("Item not found.")
+		
+	var target_area = random_areas[index]
+	var random_position = Vector2(
+	randf_range(target_area.position.x, target_area.position.x + target_area.scale.x * target_area.texture.get_size().x),
+	randf_range(target_area.position.y, target_area.position.y + target_area.scale.y * target_area.texture.get_size().y))
+	move_text_object.position = random_position
