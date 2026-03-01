@@ -26,9 +26,6 @@ fog_density = 1.0
 fog_depth_begin = 0.0
 fog_depth_end = 50.0
 
-[sub_resource type="Theme" id="Theme_i5arm"]
-default_font_size = 70
-
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a202f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a0tk4"]
@@ -66,15 +63,6 @@ spot_range = 14.142
 spot_attenuation = 0.21
 spot_angle = 63.38
 
-[node name="ColorRectback" type="ColorRect" parent="Player_Spawn/Player" unique_id=99249490]
-offset_left = 46.0
-offset_top = 61.0
-offset_right = 86.0
-offset_bottom = 101.0
-rotation = -0.15075634
-scale = Vector2(6.4711103, 3.0799983)
-color = Color(0.78039217, 0.4509804, 0.56078434, 1)
-
 [node name="ColorRect" type="ColorRect" parent="Player_Spawn/Player" unique_id=523821622]
 offset_left = 54.0
 offset_top = 53.0
@@ -84,33 +72,12 @@ rotation = -0.15075634
 scale = Vector2(6.4711103, 3.0799983)
 color = Color(0.86008173, 0.5917868, 0.7320489, 1)
 
-[node name="ColorLine" type="ColorRect" parent="Player_Spawn/Player" unique_id=1301438702]
-offset_left = 53.413315
-offset_top = 49.169807
-offset_right = 93.64989
-offset_bottom = 89.16981
-rotation = -0.15075634
-scale = Vector2(6.4711103, 0.2646923)
-color = Color(0.9019608, 0.7019608, 0.85490197, 1)
-
-[node name="ColorLine2" type="ColorRect" parent="Player_Spawn/Player" unique_id=475983194]
-offset_left = 300.89658
-offset_top = 15.486221
-offset_right = 340.89658
-offset_bottom = 55.48622
-rotation = -0.15075634
-scale = Vector2(0.265, 3.08)
-color = Color(0.9019608, 0.7019608, 0.85490197, 1)
-
 [node name="RichTextLabel" type="RichTextLabel" parent="Player_Spawn/Player" unique_id=976667536]
-offset_left = 65.8949
-offset_top = 89.84183
-offset_right = 489.40582
-offset_bottom = 222.84183
-rotation = -0.16668992
+offset_left = 82.0
+offset_top = 63.0
+offset_right = 471.0
+offset_bottom = 196.0
 scale = Vector2(0.56000024, 0.56000024)
-theme = SubResource("Theme_i5arm")
-text = "Points: xxx"
 script = ExtResource("3_r3fl7")
 
 [node name="walls" type="Node3D" parent="." unique_id=139362671 node_paths=PackedStringArray("player")]
