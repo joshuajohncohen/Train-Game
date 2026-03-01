@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var lane_scene: PackedScene
-@export var player: Node3D
+@export var player: Node3D 
 
 var farthest_track: float = 10.0
 var lane_gap: float = 10.0
@@ -14,7 +14,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	while farthest_track < player.global_position.x + view_distance:
+	while farthest_track < (player.global_position.x + view_distance):
 		spawn_lane()
 
 func spawn_lane():
