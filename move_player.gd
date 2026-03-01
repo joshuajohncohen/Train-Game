@@ -1,7 +1,7 @@
 extends CharacterBody3D
 # https://opensourcegamers.com/wp-blog/2024/08/24/how-to-make-a-simple-3d-player-in-godot-4-0/
 const SPEED = 10
-const JUMP_VELOCITY = 7
+const JUMP_VELOCITY = 5
 const SENSITIVITY = .010
 #Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -39,7 +39,8 @@ func _physics_process(delta):
 
 	#Calculate the direction the player should move.
 	var direction = (forward_dir * input_dir.y + right_dir * input_dir.x).normalized()
-
+	velocity.x = velocity.x * Global.speed_boost
+	velocity.z = velocity.z * Global.speed_boost
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED

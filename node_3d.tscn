@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d2svo3mojtoi3" path="res://train_tree.tscn" id="3_a0tk4"]
 [ext_resource type="Script" uid="uid://bhdyt2ium3jnf" path="res://walls.gd" id="3_i5arm"]
 [ext_resource type="Script" uid="uid://df0wsu846tvce" path="res://change_points_text.gd" id="3_r3fl7"]
+[ext_resource type="Shader" uid="uid://ddftj63roxphr" path="res://lsd.gdshader" id="4_4arys"]
 [ext_resource type="Script" uid="uid://disn2pttvhcw5" path="res://lane_generator.gd" id="4_r3fl7"]
 [ext_resource type="PackedScene" uid="uid://c55yg3om8xjdf" path="res://tunnel.tscn" id="7_wc5p8"]
 [ext_resource type="Texture2D" uid="uid://ctlputlipa7a4" path="res://tile123.webp" id="8_jsk3o"]
@@ -30,6 +31,10 @@ fog_depth_end = 50.0
 
 [sub_resource type="Theme" id="Theme_i5arm"]
 default_font_size = 48
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6iypd"]
+shader = ExtResource("4_4arys")
+shader_parameter/distortion_strength = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4arys"]
 albedo_texture = ExtResource("8_jsk3o")
@@ -124,6 +129,11 @@ scale = Vector2(0.56000024, 0.56000024)
 theme = SubResource("Theme_i5arm")
 text = "Points: xxx"
 script = ExtResource("3_r3fl7")
+
+[node name="ColorRect" type="ColorRect" parent="Player_Spawn/Player" unique_id=1651290906]
+material = SubResource("ShaderMaterial_6iypd")
+offset_right = 1152.0
+offset_bottom = 648.0
 
 [node name="LaneGenerator" type="Node3D" parent="." unique_id=1098479515 node_paths=PackedStringArray("player")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0)
