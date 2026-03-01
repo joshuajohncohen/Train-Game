@@ -54,38 +54,38 @@ script = ExtResource("1_2k3je")
 
 [node name="You" type="RichTextLabel" parent="Title" unique_id=151066794]
 layout_mode = 0
-offset_left = 59.778893
-offset_top = -66.0
-offset_right = 201.7789
-offset_bottom = 13.0
+offset_left = 45.83048
+offset_top = -86.0
+offset_right = 187.83047
+offset_bottom = -7.0
 theme = SubResource("Theme_50j67")
 text = "You"
 
 [node name="Wouldnt" type="RichTextLabel" parent="Title" unique_id=1501296928]
 layout_mode = 0
-offset_left = 119.5578
-offset_top = -1.0
-offset_right = 394.54074
-offset_bottom = 100.0
+offset_left = 112.58359
+offset_top = -7.0
+offset_right = 387.56653
+offset_bottom = 94.0
 theme = SubResource("Theme_50j67")
 text = "Wouldn't"
 
 [node name="Fare" type="RichTextLabel" parent="Title" unique_id=987229345]
 layout_mode = 0
-offset_left = 341.73605
-offset_top = -69.0
-offset_right = 511.1096
-offset_bottom = 15.0
+offset_left = 388.56284
+offset_top = -44.0
+offset_right = 557.9364
+offset_bottom = 40.0
 theme = SubResource("Theme_50j67")
 text = "Fare
 "
 
 [node name="Evade" type="RichTextLabel" parent="Title" unique_id=1268623254]
 layout_mode = 0
-offset_left = 466.27536
-offset_top = 51.0
-offset_right = 658.5641
-offset_bottom = 134.0
+offset_left = 477.23483
+offset_top = 52.0
+offset_right = 669.52356
+offset_bottom = 135.0
 theme = SubResource("Theme_50j67")
 text = "Evade
 "
@@ -99,39 +99,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="RandomAreas" type="Control" parent="Title" unique_id=141380079]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="YouArea" type="Container" parent="Title/RandomAreas" unique_id=95805314]
-layout_mode = 0
-offset_left = -170.36984
-offset_top = -125.0
-offset_right = 181.32935
-offset_bottom = 40.0
-
-[node name="WouldntArea" type="Container" parent="Title/RandomAreas" unique_id=293623480]
-layout_mode = 0
-offset_left = 115.57254
-offset_top = 2.0
-offset_right = 375.61075
-offset_bottom = 154.0
-
-[node name="FareArea" type="Container" parent="Title/RandomAreas" unique_id=1460086433]
-layout_mode = 0
-offset_left = 362.65863
-offset_top = -111.0
-offset_right = 605.7594
-offset_bottom = 33.0
-
-[node name="EvadeArea" type="Container" parent="Title/RandomAreas" unique_id=2139727118]
-layout_mode = 0
-offset_left = 440.37125
-offset_top = 43.0
-offset_right = 673.5088
-offset_bottom = 169.0
 
 [node name="Menu" type="Control" parent="." unique_id=391910883]
 z_index = 1
