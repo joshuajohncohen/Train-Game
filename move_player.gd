@@ -39,8 +39,7 @@ func _physics_process(delta):
 
 	#Calculate the direction the player should move.
 	var direction = (forward_dir * input_dir.y + right_dir * input_dir.x).normalized()
-	velocity.x = velocity.x * Global.speed_boost
-	velocity.z = velocity.z * Global.speed_boost
+	var SPEED = SPEED * Global.speed_boost
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED

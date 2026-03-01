@@ -24,13 +24,13 @@ func anti_sanityanters():
 
 	elif the_random == 1:
 		print("FASTER")
-		apply_speed_change(10.0)
+		apply_speed_change(3)
 
 	elif the_random == 2:
 		print("SLOWER")
-		apply_speed_change(2.0)
+		apply_speed_change(0.5)
 
-func apply_speed_change(new_speed: float):
+func apply_speed_change(new_speed: int):
 	if player:
 		Global.speed_boost = new_speed
 		await get_tree().create_timer(effect_duration).timeout

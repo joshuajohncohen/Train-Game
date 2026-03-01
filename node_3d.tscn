@@ -34,7 +34,14 @@ default_font_size = 48
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6iypd"]
 shader = ExtResource("4_4arys")
-shader_parameter/distortion_strength = 0.0
+shader_parameter/red_displacement = 0.0
+shader_parameter/green_displacement = 0.0
+shader_parameter/blue_displacement = 0.0
+shader_parameter/ghost = 0.0
+shader_parameter/intensity = 0.0
+shader_parameter/scan_effect = 0.0
+shader_parameter/distortion_effect = 0.0
+shader_parameter/negative_effect = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4arys"]
 albedo_texture = ExtResource("8_jsk3o")
