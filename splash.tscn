@@ -1,5 +1,11 @@
 [gd_scene format=3 uid="uid://yn4aa3odhw1k"]
 
+[ext_resource type="FontFile" uid="uid://c454jmen48arx" path="res://XBAND Rough.ttf" id="1_b04ml"]
+
+[sub_resource type="Theme" id="Theme_50j67"]
+default_font = ExtResource("1_b04ml")
+default_font_size = 40
+
 [node name="Control" type="Control" unique_id=1494692425]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +13,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Title" type="Control" parent="." unique_id=733213328]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Title" unique_id=151066794]
+layout_mode = 0
+offset_right = 125.499985
+offset_bottom = 79.0
+theme = SubResource("Theme_50j67")
+text = "You"
