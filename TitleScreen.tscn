@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://yn4aa3odhw1k"]
+
+[ext_resource type="FontFile" uid="uid://c454jmen48arx" path="res://XBAND Rough.ttf" id="1_pkhjh"]
+
+[sub_resource type="Theme" id="Theme_50j67"]
+default_font = ExtResource("1_pkhjh")
+default_font_size = 60
+
+[node name="Control" type="Control" unique_id=1494692425]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Control" parent="." unique_id=733213328]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="You" type="RichTextLabel" parent="Title" unique_id=151066794]
+layout_mode = 0
+offset_left = 59.999985
+offset_top = 34.5
+offset_right = 201.99998
+offset_bottom = 113.5
+theme = SubResource("Theme_50j67")
+text = "You"
+
+[node name="Wouldnt" type="RichTextLabel" parent="Title" unique_id=1501296928]
+layout_mode = 0
+offset_left = 166.50002
+offset_top = 39.0
+offset_right = 418.0
+offset_bottom = 125.50003
+theme = SubResource("Theme_50j67")
+text = "Wouldn't"
+
+[node name="Fare" type="RichTextLabel" parent="Title" unique_id=987229345]
+layout_mode = 0
+offset_left = 416.99994
+offset_top = 34.5
+offset_right = 593.49994
+offset_bottom = 112.00002
+theme = SubResource("Theme_50j67")
+text = "Fare
+"
+
+[node name="Evade" type="RichTextLabel" parent="Title" unique_id=1268623254]
+layout_mode = 0
+offset_left = 604.49994
+offset_top = 72.0
+offset_right = 793.0
+offset_bottom = 143.5
+theme = SubResource("Theme_50j67")
+text = "Evade
+"
+
+[node name="Menu" type="Control" parent="." unique_id=391910883]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Menu" unique_id=1547265378]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 15.0
+offset_right = 118.0
+offset_bottom = 105.0
