@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bkwix5x4ctdt6"]
+
+[ext_resource type="Texture2D" uid="uid://ctlputlipa7a4" path="res://tile123.webp" id="1_lorio"]
+
+[resource]
+albedo_texture = ExtResource("1_lorio")
+ao_light_affect = 0.25
+uv1_scale = Vector3(4, 12, 4)

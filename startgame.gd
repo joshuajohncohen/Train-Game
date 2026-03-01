@@ -12,5 +12,4 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
-	print("wruff")
 	get_tree().change_scene_to_file("res://node_3d.tscn")

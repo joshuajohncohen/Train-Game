@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 	loop_movement(delta)
 
 func update_speed():
-	speed = ((((Global.farthest_track - 10) / 10) ** 1.07) / 90) + 0.3
+	speed = ((((Global.farthest_track - 10) / 10) ** 1.12) / 90) + 0.35
 
 func loop_movement(delta):
 	if progress_ratio > 0.99:
@@ -22,7 +22,7 @@ func loop_movement(delta):
 		isMoving = false
 		var timer = Timer.new()
 		add_child(timer)
-		timer.wait_time = randf_range(0.1, 1.2)
+		timer.wait_time = randf_range(0.1, 0.65)
 		timer.one_shot = true
 		timer.start()
 		timer.timeout.connect(start_moving)

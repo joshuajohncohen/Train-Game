@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b72qdy460qk6k" path="res://train.tscn" id="2_uj664"]
 [ext_resource type="Script" uid="uid://b2qsjmbyyk2n1" path="res://pointgiver.gd" id="4_unhk6"]
 [ext_resource type="Script" uid="uid://ds4pkfwyokuk8" path="res://choose_to_keep.gd" id="5_v7ft0"]
+[ext_resource type="PackedScene" uid="uid://0fw3x4drw16l" path="res://arch.gltf" id="6_me4yk"]
 
 [sub_resource type="Curve3D" id="Curve3D_a0tk4"]
 _data = {
@@ -32,17 +33,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.057878, 1, 0)
 curve = SubResource("Curve3D_a0tk4")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1112442242]
-transform = Transform3D(-0.9999998, 0, -8.742276e-08, 0, 1, 0, 8.742276e-08, 0, -0.9999998, 13, 0, -20)
+transform = Transform3D(-0.9999998, 0, 1.5099577e-07, 0, 1, 0, -1.5099577e-07, 0, -0.9999998, 13, 0, -20)
 script = ExtResource("1_e5103")
 
 [node name="Area3D" type="Area3D" parent="Path3D/PathFollow3D" unique_id=2034716082]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.977, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/Area3D" unique_id=275703833]
 transform = Transform3D(0.99991995, 0, 2.0989432e-11, 0, 1, 0, -2.0989432e-11, 0, 0.99991995, -0.00026790425, -0.10166168, -0.0495739)
 shape = SubResource("BoxShape3D_unhk6")
 
 [node name="Train Model" parent="Path3D/PathFollow3D/Area3D" unique_id=1014513635 instance=ExtResource("2_uj664")]
-transform = Transform3D(-0.9999897, 0, -8.742457e-08, 0, 1, 0, 8.742457e-08, 0, -0.9999897, 0, 0, 0)
+transform = Transform3D(-0.9999897, 0, -1.5099424e-07, 0, 1, 0, 1.5099424e-07, 0, -0.9999897, 0, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1013682193]
 transform = Transform3D(0.9440352, 0, 0, 0, 6.16614, 0, 0, 0, 13.197913, 4.004136, 1.2699568, 0)
@@ -58,7 +60,6 @@ script = ExtResource("4_unhk6")
 [node name="powerups" type="Node3D" parent="." unique_id=1755598691]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="powerups" unique_id=562451463]
-visible = false
 physics_material_override = SubResource("PhysicsMaterial_unhk6")
 script = ExtResource("5_v7ft0")
 
@@ -96,6 +97,12 @@ shape = SubResource("BoxShape3D_v7ft0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="powerups/StaticBody3D/CollisionShape3D6" unique_id=951183133]
 mesh = SubResource("BoxMesh_me4yk")
+
+[node name="Root" parent="." unique_id=291205570 instance=ExtResource("6_me4yk")]
+transform = Transform3D(0.9, 0, 0, 0, -8.742278e-08, 0.8, 0, -2, -3.4969112e-08, 0, -1.093, -5)
+
+[node name="Root2" parent="." unique_id=1761438115 instance=ExtResource("6_me4yk")]
+transform = Transform3D(0.9, 0, 0, 0, -8.742278e-08, 0.8, 0, -2, -3.4969112e-08, 0, -1.093, 3.171)
 
 [connection signal="body_entered" from="Path3D/PathFollow3D/Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Area3D" to="Pointgiver" method="_on_area_3d_body_entered"]
