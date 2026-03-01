@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bhdyt2ium3jnf" path="res://walls.gd" id="3_i5arm"]
 [ext_resource type="Script" uid="uid://df0wsu846tvce" path="res://change_points_text.gd" id="3_r3fl7"]
 [ext_resource type="Script" uid="uid://disn2pttvhcw5" path="res://lane_generator.gd" id="4_r3fl7"]
+[ext_resource type="PackedScene" uid="uid://c55yg3om8xjdf" path="res://tunnel.tscn" id="7_wc5p8"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a202f"]
 
@@ -114,10 +115,10 @@ color = Color(0.9019608, 0.7019608, 0.85490197, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Player_Spawn/Player/Points" unique_id=976667536]
 layout_mode = 0
-offset_left = 69.115906
-offset_top = 63.0
-offset_right = 492.62683
-offset_bottom = 196.0
+offset_left = 86.00001
+offset_top = 66.0
+offset_right = 509.51093
+offset_bottom = 199.0
 scale = Vector2(0.56000024, 0.56000024)
 theme = SubResource("Theme_i5arm")
 text = "Points: xxx"
@@ -174,3 +175,6 @@ transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0)
 script = ExtResource("4_r3fl7")
 lane_scene = ExtResource("3_a0tk4")
 player = NodePath("../Player_Spawn/Player/CharacterBody3D")
+
+[node name="Root" parent="." unique_id=937189371 instance=ExtResource("7_wc5p8")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
