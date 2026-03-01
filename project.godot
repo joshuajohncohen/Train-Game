@@ -21,7 +21,7 @@ Global="*uid://tmfpltu0cqaj"
 
 [display]
 
-window/size/mode=2
+window/stretch/mode="viewport"
 
 [input]
 
