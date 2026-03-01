@@ -12,7 +12,7 @@ func _ready() -> void:
 	reset_trains()
 
 func reset_trains():
-	farthest_track = 10.0
+	Global.farthest_track = 10.0
 	lane_gap = 10.0
 	view_distance = 50.0
 	
@@ -21,11 +21,11 @@ func reset_trains():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	while farthest_track < (player.global_position.x + view_distance):
+	while Global.farthest_track < (player.global_position.x + view_distance):
 		spawn_lane()
 
 func spawn_lane():
 	var new_lane = lane_scene.instantiate()
 	add_child(new_lane)
-	new_lane.global_position.x = farthest_track
-	farthest_track += lane_gap
+	new_lane.global_position.x = Global.farthest_track
+	Global.farthest_track += lane_gap
