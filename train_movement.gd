@@ -1,6 +1,7 @@
 extends PathFollow3D
 
 var speed: float
+var isMoving: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,4 +17,17 @@ func update_speed():
 	speed = ((((Global.farthest_track - 10) / 10) ** 1.07) / 90) + 0.3
 
 func loop_movement(delta):
-	progress_ratio += speed * delta
+	if progress_ratio > 0.99:
+		progress_ratio = 0
+		isMoving = false
+		var timer = Timer.new()
+		add_child(timer)
+		timer.wait_time = randf_range(0.1, 1.2)
+		timer.one_shot = true
+		timer.start()
+		timer.timeout.connect(start_moving)
+	if isMoving:
+		progress_ratio += speed * delta
+
+func start_moving():
+	isMoving = true
