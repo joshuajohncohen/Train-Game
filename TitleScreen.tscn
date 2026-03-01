@@ -50,6 +50,7 @@ offset_top = 126.0
 offset_right = 992.0
 offset_bottom = 294.0
 scale = Vector2(1.0036987, 1)
+mouse_filter = 2
 script = ExtResource("1_2k3je")
 
 [node name="You" type="RichTextLabel" parent="Title" unique_id=151066794]
@@ -100,6 +101,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1646657919]
+z_index = -1
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+texture = ExtResource("3_tu0on")
+expand_mode = 1
+
 [node name="Menu" type="Control" parent="." unique_id=391910883]
 z_index = 1
 anchors_preset = 0
@@ -107,22 +117,15 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Button" type="Button" parent="Menu" unique_id=1547265378]
+z_index = 2
 layout_mode = 0
-offset_left = 448.0
-offset_top = 320.0
-offset_right = 640.0
-offset_bottom = 382.0
+offset_left = 443.0
+offset_top = 375.0
+offset_right = 691.0
+offset_bottom = 444.0
 theme = SubResource("Theme_1xr1c")
 shortcut = SubResource("Shortcut_2k3je")
 text = "Start Game"
 script = ExtResource("2_1xr1c")
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1646657919]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-mouse_filter = 2
-texture = ExtResource("3_tu0on")
-expand_mode = 1
 
 [connection signal="pressed" from="Menu/Button" to="Menu/Button" method="_on_pressed"]
