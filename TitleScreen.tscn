@@ -1,10 +1,26 @@
-[gd_scene format=3 uid="uid://yn4aa3odhw1k"]
+[gd_scene format=3 uid="uid://dfsy8eop082n4"]
 
 [ext_resource type="FontFile" uid="uid://c454jmen48arx" path="res://XBAND Rough.ttf" id="1_pkhjh"]
+[ext_resource type="Script" uid="uid://bf2sqd4jky88s" path="res://startgame.gd" id="2_1xr1c"]
+[ext_resource type="Texture2D" uid="uid://cmafwwq1ceown" path="res://Splash.jpg" id="3_tu0on"]
 
 [sub_resource type="Theme" id="Theme_50j67"]
 default_font = ExtResource("1_pkhjh")
 default_font_size = 60
+
+[sub_resource type="InputEventKey" id="InputEventKey_1xr1c"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="InputEventMouseButton" id="InputEventMouseButton_tu0on"]
+button_mask = 1
+position = Vector2(1051, 19)
+global_position = Vector2(1070, 115)
+button_index = 1
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_2k3je"]
+events = [SubResource("InputEventKey_1xr1c"), SubResource("InputEventMouseButton_tu0on")]
 
 [node name="Control" type="Control" unique_id=1494692425]
 layout_mode = 3
@@ -15,9 +31,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Title" type="Control" parent="." unique_id=733213328]
+z_index = 1
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 184.0
+offset_top = 126.0
+offset_right = 992.0
+offset_bottom = 294.0
+scale = Vector2(1.0036987, 1)
 
 [node name="You" type="RichTextLabel" parent="Title" unique_id=151066794]
 layout_mode = 0
@@ -58,13 +78,28 @@ text = "Evade
 "
 
 [node name="Menu" type="Control" parent="." unique_id=391910883]
+z_index = 1
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Button" type="Button" parent="Menu" unique_id=1547265378]
 layout_mode = 0
-offset_left = 28.0
-offset_top = 15.0
-offset_right = 118.0
-offset_bottom = 105.0
+offset_left = 448.0
+offset_top = 320.0
+offset_right = 544.0
+offset_bottom = 351.0
+scale = Vector2(2, 2)
+shortcut = SubResource("Shortcut_2k3je")
+text = "Start Game"
+script = ExtResource("2_1xr1c")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1646657919]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+texture = ExtResource("3_tu0on")
+expand_mode = 1
+
+[connection signal="pressed" from="Menu/Button" to="Menu/Button" method="_on_pressed"]
