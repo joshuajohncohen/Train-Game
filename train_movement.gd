@@ -16,5 +16,5 @@ func update_speed():
 	speed = ((((Global.farthest_track - 10) / 10) ** 1.07) / 90) + 0.3
 
 func loop_movement(delta):
-	
+	var random_number = randi_range(0, 3)
 	progress_ratio += speed * delta

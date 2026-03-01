@@ -17,6 +17,12 @@ size = Vector3(5.75, 6.3543243, 18.111362)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jka67"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_unhk6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v7ft0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_me4yk"]
+
 [node name="Train_node" type="Node3D" unique_id=1116768144]
 script = ExtResource("1_uj664")
 
@@ -25,7 +31,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.057878, 1, 0)
 curve = SubResource("Curve3D_a0tk4")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1112442242]
-transform = Transform3D(-0.9999998, 0, 1.5099577e-07, 0, 1, 0, -1.5099577e-07, 0, -0.9999998, 13, 0, -20)
+transform = Transform3D(-0.9999998, 0, -8.742276e-08, 0, 1, 0, 8.742276e-08, 0, -0.9999998, 13, 0, -20)
 script = ExtResource("1_e5103")
 
 [node name="Area3D" type="Area3D" parent="Path3D/PathFollow3D" unique_id=2034716082]
@@ -47,6 +53,17 @@ shape = SubResource("BoxShape3D_jka67")
 
 [node name="Pointgiver" type="Node3D" parent="." unique_id=1934576969]
 script = ExtResource("4_unhk6")
+
+[node name="powerups" type="Node3D" parent="." unique_id=1755598691]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="powerups" unique_id=562451463]
+physics_material_override = SubResource("PhysicsMaterial_unhk6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="powerups/StaticBody3D" unique_id=636051651]
+shape = SubResource("BoxShape3D_v7ft0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="powerups/StaticBody3D/CollisionShape3D" unique_id=289290826]
+mesh = SubResource("BoxMesh_me4yk")
 
 [connection signal="body_entered" from="Path3D/PathFollow3D/Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Area3D" to="Pointgiver" method="_on_area_3d_body_entered"]
