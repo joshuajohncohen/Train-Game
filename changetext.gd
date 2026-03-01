@@ -1,44 +1,29 @@
 extends Control
 
-@onready var you = $You
-@onready var wouldnt = $Wouldnt
-@onready var fare = $Fare
-@onready var evade = $Evade
-@onready var text_objects = [you, wouldnt, fare, evade]
-
-@onready var youarea = $RandomAreas/YouArea
-@onready var wouldntarea = $RandomAreas/WouldntArea
-@onready var farearea = $RandomAreas/FareArea
-@onready var evadearea = $RandomAreas/EvadeArea
-
-@onready var random_areas = [youarea, wouldntarea, farearea, evadearea]
+@onready var text_objects = [$You, $Wouldnt, $Fare, $Evade]
+@onready var random_areas = [$RandomAreas/YouArea, $RandomAreas/WouldntArea, $RandomAreas/FareArea, $RandomAreas/EvadeArea]
 
 func _ready():
-	# Enable BBCode programmatically if not done in inspector
-	you.bbcode_enabled = true
-	wouldnt.bbcode_enabled = true
-	fare.bbcode_enabled = true
-	evade.bbcode_enabled = true
-	
-	for text_object in text_objects:
-		set_font_size(text_object)
-		move_randomly(text_object)
-	
-func set_font_size(change_font_object):
-	var font_size_random = randf_range(60, 73)
-	change_font_object.add_theme_font_size_override("normal_font_size", font_size_random)
-	return font_size_random
-	
-func move_randomly(move_text_object):
-	var index = text_objects.find(move_text_object)
-
-	if index != -1:
-		print("Found at position: ", index)
-	else:
-		print("Item not found.")
+	for i in range(text_objects.size()):
+		var text_node = text_objects[i]
+		var area_node = random_areas[i]
 		
-	var target_area = random_areas[index]
-	var random_position = Vector2(
-	randf_range(target_area.position.x, target_area.position.x + target_area.scale.x * target_area.texture.get_size().x),
-	randf_range(target_area.position.y, target_area.position.y + target_area.scale.y * target_area.texture.get_size().y))
-	move_text_object.position = random_position
+		text_node.bbcode_enabled = true
+		set_font_size(text_node)
+		move_randomly_in_container(text_node, area_node)
+
+func set_font_size(node: RichTextLabel):
+	var size = randf_range(60, 73)
+	node.add_theme_font_size_override("normal_font_size", size)
+
+func move_randomly_in_container(node: Control, area: Control):
+	var area_rect = area.get_global_rect()
+	var max_x = area_rect.size.x - node.size.x
+	var max_y = area_rect.size.y - node.size.y
+	max_x = max(0, max_x)
+	max_y = max(0, max_y)
+
+	var random_x = randf_range(area_rect.position.x, area_rect.position.x + max_x)
+	var random_y = randf_range(area_rect.position.y, area_rect.position.y + max_y)
+	
+	node.global_position = Vector2(random_x, random_y)

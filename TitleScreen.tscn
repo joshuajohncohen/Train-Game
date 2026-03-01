@@ -107,8 +107,8 @@ offset_bottom = 40.0
 
 [node name="YouArea" type="Container" parent="Title/RandomAreas" unique_id=95805314]
 layout_mode = 0
-offset_left = -57.786263
-offset_top = -103.0
+offset_left = -170.36984
+offset_top = -125.0
 offset_right = 181.32935
 offset_bottom = 40.0
 
