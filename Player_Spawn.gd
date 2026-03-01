@@ -16,6 +16,7 @@ func player_reset():
 		Global.high_score = Global.player_score
 		Global.deaths += 1
 	Global.player_score = 0
+	Global.speed_boost = 1
 	if laneGen.has_method("reset_trains"):
 		laneGen.reset_trains()
 	pass

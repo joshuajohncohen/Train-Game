@@ -34,14 +34,10 @@ default_font_size = 48
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6iypd"]
 shader = ExtResource("4_4arys")
-shader_parameter/red_displacement = 0.0
-shader_parameter/green_displacement = 0.0
-shader_parameter/blue_displacement = 0.0
-shader_parameter/ghost = 0.0
-shader_parameter/intensity = 0.0
-shader_parameter/scan_effect = 0.0
-shader_parameter/distortion_effect = 0.0
-shader_parameter/negative_effect = 0.0
+shader_parameter/pixel_size = 3.0
+shader_parameter/vhs_intensity = 3.0
+shader_parameter/noise_intensity = 0.15
+shader_parameter/opacity = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4arys"]
 albedo_texture = ExtResource("8_jsk3o")
@@ -138,6 +134,9 @@ text = "Points: xxx"
 script = ExtResource("3_r3fl7")
 
 [node name="ColorRect" type="ColorRect" parent="Player_Spawn/Player" unique_id=1651290906]
+visible = false
+modulate = Color(1, 1, 1, 0.22745098)
+self_modulate = Color(1, 1, 1, 0.15294118)
 material = SubResource("ShaderMaterial_6iypd")
 offset_right = 1152.0
 offset_bottom = 648.0
