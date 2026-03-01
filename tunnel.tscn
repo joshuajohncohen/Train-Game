@@ -5,9 +5,7 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_00owb"]
 albedo_texture = ExtResource("2_00owb")
-ao_enabled = true
 ao_light_affect = 0.25
-heightmap_enabled = true
 uv1_scale = Vector3(4, 12, 4)
 texture_filter = 1
 
