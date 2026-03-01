@@ -22,14 +22,17 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_00owb"]
+size = Vector3(1, 10, 17)
+
 [node name="Root" unique_id=937189371 instance=ExtResource("1_firpc")]
 
-[node name="Part 1" parent="." index="0" unique_id=1365151726]
-transform = Transform3D(-3.934025e-08, 0, -1, 0, 0.8, 0, 0.9, 0, -4.371139e-08, 0, -0.977, 0)
+[node name="Part 1" parent="." index="0" unique_id=192779693]
+transform = Transform3D(-3.934025e-08, 0, -1, 0, 0.8, 0, 0.9, 0, -4.371139e-08, 39, -0.977, 0)
 material_overlay = ExtResource("2_00owb")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1637611437]
-transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 0.9, 0, -0.977, 0)
+transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 0.9, 39, -0.977, 0)
 physics_material_override = SubResource("PhysicsMaterial_firpc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=424663667]
@@ -41,4 +44,9 @@ transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 
 visible = false
 mesh = SubResource("ArrayMesh_hfrff")
 
-[node name="Node3D" type="Node3D" parent="." index="2" unique_id=1375143218]
+[node name="Area3D" type="Area3D" parent="." index="2" unique_id=1944502752]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 0, 0)
+
+[node name="completehalfwaycolid" type="CollisionShape3D" parent="Area3D" index="0" unique_id=2125777470]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+shape = SubResource("BoxShape3D_00owb")

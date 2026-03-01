@@ -9,7 +9,7 @@ size = Vector3(1, 2.9042969, 2.7490387)
 
 [node name="Root" unique_id=1014513635 instance=ExtResource("1_bju55")]
 
-[node name="Part 1" parent="." index="0" unique_id=1187453098]
+[node name="Part 1" parent="." index="0" unique_id=781425269]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Part 1" index="0" unique_id=934181510]
