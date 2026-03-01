@@ -3,14 +3,21 @@ extends Node3D
 @export var lane_scene: PackedScene
 @export var player: Node3D 
 
-var farthest_track: float = 10.0
-var lane_gap: float = 10.0
-var view_distance: float = 50.0
+var farthest_track: float
+var lane_gap: float
+var view_distance: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	reset_trains()
 
+func reset_trains():
+	farthest_track = 10.0
+	lane_gap = 10.0
+	view_distance = 50.0
+	
+	for child in get_children():
+		child.queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
