@@ -28,7 +28,7 @@ fog_depth_begin = 0.0
 fog_depth_end = 50.0
 
 [sub_resource type="Theme" id="Theme_i5arm"]
-default_font_size = 70
+default_font_size = 48
 
 [node name="Node3D" type="Node3D" unique_id=589688143]
 script = ExtResource("1_r3fl7")
@@ -109,10 +109,11 @@ color = Color(0.9019608, 0.7019608, 0.85490197, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Player_Spawn/Player/Points" unique_id=976667536]
 layout_mode = 0
-offset_left = 86.00001
-offset_top = 66.0
-offset_right = 509.51093
-offset_bottom = 199.0
+offset_left = 72.00001
+offset_top = 52.000004
+offset_right = 495.51093
+offset_bottom = 271.64276
+rotation = -0.021820555
 scale = Vector2(0.56000024, 0.56000024)
 theme = SubResource("Theme_i5arm")
 text = "Points: xxx"
@@ -128,3 +129,12 @@ player = NodePath("../Player_Spawn/Player/CharacterBody3D")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("3_i5arm")
 player = NodePath("../Player_Spawn/Player/CharacterBody3D")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=2090600145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.007744, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D" unique_id=895005240]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D" unique_id=1392471497]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/StaticBody3D/CollisionShape3D" unique_id=1639690657]

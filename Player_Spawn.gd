@@ -12,9 +12,13 @@ func player_reset():
 	playerC.global_position = spawn.global_position
 	head.rotation = Vector3.ZERO
 	camera.rotation = Vector3.ZERO
+	if Global.player_score > Global.high_score:
+		Global.high_score = Global.player_score
+		Global.deaths += 1
 	Global.player_score = 0
 	if laneGen.has_method("reset_trains"):
 		laneGen.reset_trains()
+
 
 func _ready():
 	playerC.global_position = spawn.global_position
