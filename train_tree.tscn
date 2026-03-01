@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://b2ey27e4a6uaq" path="res://train_movement.gd" id="1_e5103"]
 [ext_resource type="Script" uid="uid://dv3rb77j7640y" path="res://delete_trains.gd" id="1_uj664"]
 [ext_resource type="PackedScene" uid="uid://b72qdy460qk6k" path="res://train.tscn" id="2_uj664"]
-[ext_resource type="Script" uid="uid://hdp6bja1n18h" path="res://kill_player.gd" id="3_v7ft0"]
 [ext_resource type="Script" uid="uid://b2qsjmbyyk2n1" path="res://pointgiver.gd" id="4_unhk6"]
 
 [sub_resource type="Curve3D" id="Curve3D_a0tk4"]
@@ -14,7 +13,7 @@ _data = {
 point_count = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_unhk6"]
-size = Vector3(5.210001, 1, 18.111362)
+size = Vector3(5.210001, 6.3543243, 18.111362)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jka67"]
 
@@ -30,10 +29,9 @@ transform = Transform3D(-0.9999998, 0, 1.5099577e-07, 0, 1, 0, -1.5099577e-07, 0
 script = ExtResource("1_e5103")
 
 [node name="Area3D" type="Area3D" parent="Path3D/PathFollow3D" unique_id=2034716082]
-script = ExtResource("3_v7ft0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/Area3D" unique_id=275703833]
-transform = Transform3D(0.9999417, 0, 1.529088e-11, 0, 1, 0, -1.529088e-11, 0, 0.9999417, -0.00026790425, 0, -0.0495739)
+transform = Transform3D(0.9999317, 0, 1.7919888e-11, 0, 1, 0, -1.7919888e-11, 0, 0.9999317, -0.00026790425, -0.10166168, -0.0495739)
 shape = SubResource("BoxShape3D_unhk6")
 
 [node name="Train Model" parent="Path3D/PathFollow3D/Area3D" unique_id=1014513635 instance=ExtResource("2_uj664")]
