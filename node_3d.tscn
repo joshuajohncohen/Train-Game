@@ -30,12 +30,6 @@ fog_depth_end = 50.0
 [sub_resource type="Theme" id="Theme_i5arm"]
 default_font_size = 70
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a202f"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_a0tk4"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_noarx"]
-
 [node name="Node3D" type="Node3D" unique_id=589688143]
 script = ExtResource("1_r3fl7")
 
@@ -124,57 +118,13 @@ theme = SubResource("Theme_i5arm")
 text = "Points: xxx"
 script = ExtResource("3_r3fl7")
 
-[node name="walls" type="Node3D" parent="." unique_id=139362671 node_paths=PackedStringArray("player")]
-transform = Transform3D(7.0965858, 6.3153337e-16, -3.3075234e-22, 0, -9.576004e-09, -2.6248333, -2.0457665e-14, 0.21907343, -1.1473511e-07, 22.30697, 0, -9.276202)
-script = ExtResource("3_i5arm")
-player = NodePath("../Player_Spawn/Player/CharacterBody3D")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="walls" unique_id=454115254]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -2.220446e-16, 1, 0, 16.512352, -6.024092e-08)
-physics_material_override = SubResource("PhysicsMaterial_a202f")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/StaticBody3D" unique_id=925459281]
-transform = Transform3D(9, 0, 0, 0, 0.517, 0, 0, 0, 3.199, 0, -1.6168349, 0)
-shape = SubResource("BoxShape3D_a0tk4")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="walls/StaticBody3D/CollisionShape3D" unique_id=282352033]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("BoxMesh_noarx")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="walls" unique_id=471909801]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -6.661338e-16, 1, 0, 67.77054, -2.4724278e-07)
-physics_material_override = SubResource("PhysicsMaterial_a202f")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/StaticBody3D2" unique_id=1312567079]
-transform = Transform3D(9, 0, 0, 0, 0.517, 0, 0, 0, 3.199, 0, -1.6168349, 0)
-shape = SubResource("BoxShape3D_a0tk4")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="walls/StaticBody3D2/CollisionShape3D" unique_id=963754089]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("BoxMesh_noarx")
-
-[node name="Floor" type="Node3D" parent="walls" unique_id=1435124722]
-transform = Transform3D(0.94279736, -1.1129693e-22, 0, 6.7762636e-21, -1.3463122e-08, 16.475378, -3.4068325e-22, -0.30800012, -7.2016167e-07, 0.11663985, 41.334564, -1.5079812e-07)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="walls/Floor" unique_id=1143386454]
-transform = Transform3D(1.0546812, -1.2621775e-29, -2.1175824e-22, 0, 1, -4.5474735e-13, 0, 0, 1, -0.13843584, 0, 0)
-physics_material_override = SubResource("PhysicsMaterial_a202f")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/Floor/StaticBody3D" unique_id=1160533148]
-transform = Transform3D(9, -1.2621775e-29, -5.5904175e-20, 0, 0.517, -6.184564e-11, 0, 0, 3.199, 0, -1.616835, -3.7252903e-09)
-shape = SubResource("BoxShape3D_a0tk4")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="walls/Floor/StaticBody3D/CollisionShape3D" unique_id=173914000]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("BoxMesh_noarx")
-
-[node name="Nicer walls" type="Node3D" parent="walls" unique_id=864448624]
-
 [node name="LaneGenerator" type="Node3D" parent="." unique_id=1098479515 node_paths=PackedStringArray("player")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0)
 script = ExtResource("4_r3fl7")
 lane_scene = ExtResource("3_a0tk4")
 player = NodePath("../Player_Spawn/Player/CharacterBody3D")
 
-[node name="Root" parent="." unique_id=937189371 instance=ExtResource("7_wc5p8")]
+[node name="Root" parent="." unique_id=937189371 node_paths=PackedStringArray("player") instance=ExtResource("7_wc5p8")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("3_i5arm")
+player = NodePath("../Player_Spawn/Player/CharacterBody3D")
