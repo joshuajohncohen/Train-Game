@@ -26,6 +26,11 @@ func _process(delta: float) -> void:
 
 func spawn_lane():
 	var new_lane = lane_scene.instantiate()
+	var trainNum = randi_range(0,1)
+	if !trainNum:
+		new_lane.trainType = "1"
+	elif trainNum == 1:
+		new_lane.trainType = "A"
 	add_child(new_lane)
 	new_lane.global_position.x = Global.farthest_track
 	Global.farthest_track += lane_gap
