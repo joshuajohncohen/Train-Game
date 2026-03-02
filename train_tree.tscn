@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b2ey27e4a6uaq" path="res://train_movement.gd" id="1_e5103"]
 [ext_resource type="Script" uid="uid://dv3rb77j7640y" path="res://delete_trains.gd" id="1_uj664"]
-[ext_resource type="PackedScene" uid="uid://b72qdy460qk6k" path="res://train.tscn" id="2_uj664"]
+[ext_resource type="PackedScene" uid="uid://b72qdy460qk6k" path="res://one train.tscn" id="2_uj664"]
+[ext_resource type="PackedScene" uid="uid://bim86xhxqftkf" path="res://a train.tscn" id="4_mw7is"]
 [ext_resource type="Script" uid="uid://b2qsjmbyyk2n1" path="res://pointgiver.gd" id="4_unhk6"]
 [ext_resource type="Script" uid="uid://ds4pkfwyokuk8" path="res://choose_to_keep.gd" id="5_v7ft0"]
 [ext_resource type="PackedScene" uid="uid://dbocfvt2sjgq8" path="res://arch.tscn" id="6_me4yk"]
@@ -16,7 +17,7 @@ _data = {
 point_count = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_unhk6"]
-size = Vector3(5.75, 6.3543243, 18.111362)
+size = Vector3(5.75, 6.3543243, 20.9375)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jka67"]
 
@@ -34,18 +35,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.057878, 1, 0)
 curve = SubResource("Curve3D_a0tk4")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1112442242]
-transform = Transform3D(-0.9999998, 0, -8.742276e-08, 0, 1, 0, 8.742276e-08, 0, -0.9999998, 13, 0, -20)
+transform = Transform3D(-0.9999998, 0, 1.5099577e-07, 0, 1, 0, -1.5099577e-07, 0, -0.9999998, 13, 0, -20)
 script = ExtResource("1_e5103")
 
-[node name="Area3D" type="Area3D" parent="Path3D/PathFollow3D" unique_id=2034716082]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.977, 0)
+[node name="1" type="Area3D" parent="Path3D/PathFollow3D" unique_id=2034716082]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.977, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/Area3D" unique_id=275703833]
-transform = Transform3D(0.99991995, 0, 2.0989432e-11, 0, 1, 0, -2.0989432e-11, 0, 0.99991995, -0.00026790425, -0.10166168, -0.0495739)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/1" unique_id=275703833]
+transform = Transform3D(0.8, 0, 1.6792892e-11, 0, 0.8, 0, -1.6792892e-11, 0, 0.8, -0.00026790425, -0.10166168, -0.0495739)
 shape = SubResource("BoxShape3D_unhk6")
 
-[node name="Train Model" parent="Path3D/PathFollow3D/Area3D" unique_id=1014513635 instance=ExtResource("2_uj664")]
+[node name="Train Model" parent="Path3D/PathFollow3D/1" unique_id=1014513635 instance=ExtResource("2_uj664")]
 transform = Transform3D(-0.9999897, 0, -1.5099424e-07, 0, 1, 0, 1.5099424e-07, 0, -0.9999897, 0, 0, 0)
+
+[node name="A" type="Area3D" parent="Path3D/PathFollow3D" unique_id=1757054484]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.977, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/A" unique_id=429604589]
+transform = Transform3D(0.8, 0, 1.679723e-11, 0, 0.8, 0, -1.679723e-11, 0, 0.8, -0.00026790425, -0.10166168, -0.0495739)
+shape = SubResource("BoxShape3D_unhk6")
+
+[node name="Root" parent="Path3D/PathFollow3D/A" unique_id=1663661602 instance=ExtResource("4_mw7is")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1013682193]
 transform = Transform3D(0.9440352, 0, 0, 0, 6.16614, 0, 0, 0, 13.197913, 4.004136, 1.2699568, 0)
@@ -168,7 +181,8 @@ transform = Transform3D(0.9, 0, 0, 0, -8.742278e-08, 0.8, 0, -2, -3.4969112e-08,
 [node name="the_dealer" type="Node3D" parent="." unique_id=1368441393]
 script = ExtResource("6_mw7is")
 
-[connection signal="body_entered" from="Path3D/PathFollow3D/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Path3D/PathFollow3D/1" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Path3D/PathFollow3D/A" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Area3D" to="Pointgiver" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="powerups/StaticBody3D/Area3D" to="the_dealer" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="powerups/StaticBody3D2/Area3D" to="the_dealer" method="_on_area_3d_body_entered"]
