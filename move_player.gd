@@ -15,6 +15,9 @@ var control_map = {
 	"jump": "move_jump"
 }
 
+var mouse_x_dir = 1
+var mouse_y_dir = 1
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	# Connect the player to the Global signal
@@ -27,6 +30,12 @@ func _on_scramble_toggled(_is_scrambled: bool):
 	
 	if Global.scramble_controls:
 		actions.shuffle()
+		# Randomly flip mouse axes
+		mouse_x_dir = [-1, 1].pick_random()
+		mouse_y_dir = [-1, 1].pick_random()
+	else:
+		mouse_x_dir = 1
+		mouse_y_dir = 1
 	
 	control_map["left"] = actions[0]
 	control_map["right"] = actions[1]
@@ -36,8 +45,8 @@ func _on_scramble_toggled(_is_scrambled: bool):
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotation.y = clamp(head.rotation.y, -1, 1)
-		head.rotate_y(-event.relative.x * SENSITIVITY)
-		camera.rotate_x(-event.relative.y * SENSITIVITY)
+		head.rotate_y(-event.relative.x * SENSITIVITY * mouse_x_dir)
+		camera.rotate_x(-event.relative.y * SENSITIVITY * mouse_y_dir)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 
 
