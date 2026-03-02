@@ -2,11 +2,11 @@ shader_type canvas_item;
 
 // Main texture and parameters
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_nearest;
-uniform float pixel_size : hint_range(1.0, 10.0) = 3.30;
-uniform float vhs_intensity : hint_range(0.0, 10.0) = 3.30;
-uniform float noise_intensity : hint_range(0.0, 1.0) = 0.35;
-uniform float high_freq_noise : hint_range(0.0, 1.0) = 0.05; // From second shader
-uniform float opacity : hint_range(0.0, 1.0) = 0.5; 
+uniform float pixel_size : hint_range(1.0, 10.0) = 2.30;
+uniform float vhs_intensity : hint_range(0.0, 10.0) = 5.30;
+uniform float noise_intensity : hint_range(0.0, 1.0) = 0.25;
+uniform float high_freq_noise : hint_range(0.0, 1.0) = 0.55; // From second shader
+uniform float opacity : hint_range(0.0, 1.0) = 0.39; 
 
 // Quick & dirty random function
 float random(vec2 uv) {

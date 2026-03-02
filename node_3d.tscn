@@ -135,7 +135,6 @@ text = "Points: xxx"
 script = ExtResource("3_r3fl7")
 
 [node name="ColorRect" type="ColorRect" parent="Player_Spawn/Player" unique_id=1651290906]
-visible = false
 modulate = Color(1, 1, 1, 0.22745098)
 self_modulate = Color(1, 1, 1, 0.15294118)
 material = SubResource("ShaderMaterial_6iypd")
