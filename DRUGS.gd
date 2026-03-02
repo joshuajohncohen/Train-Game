@@ -5,7 +5,7 @@ extends Node
 @onready var effect_timer = Timer.new()
 
 var normal_speed: float = 1.0
-var effect_duration: float = 10.0
+var effect_duration: float = 3.0
 
 func _ready() -> void:
 	add_child(effect_timer)
@@ -43,6 +43,7 @@ func apply_speed_change(new_speed: float):
 func _on_effect_timeout():
 	Global.speed_boost = normal_speed
 	Global.scramble_controls = false
+	Global.scramble_toggled.emit()
 	if shader_rect:
 		shader_rect.visible = false
 
