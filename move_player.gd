@@ -1,21 +1,52 @@
 extends CharacterBody3D
 # https://opensourcegamers.com/wp-blog/2024/08/24/how-to-make-a-simple-3d-player-in-godot-4-0/
-const SPEED = 10
-const JUMP_VELOCITY = 7
+var SPEED = 10
+const JUMP_VELOCITY = 5
 const SENSITIVITY = .010
 #Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 
+var control_map = {
+	"left": "move_left",
+	"right": "move_right",
+	"forward": "move_forward",
+	"jump": "move_jump"
+}
+
+var mouse_x_dir = 1
+var mouse_y_dir = 1
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	# Connect the player to the Global signal
+	Global.scramble_toggled.connect(_on_scramble_toggled)
+	# Set initial state
+	_on_scramble_toggled(Global.scramble_controls)
 
+func _on_scramble_toggled(_is_scrambled: bool):
+	var actions = ["move_left", "move_right", "move_forward", "move_jump"]
+	
+	if Global.scramble_controls:
+		actions.shuffle()
+		# Randomly flip mouse axes
+		mouse_x_dir = [-1, 1].pick_random()
+		mouse_y_dir = [-1, 1].pick_random()
+	else:
+		mouse_x_dir = 1
+		mouse_y_dir = 1
+	
+	control_map["left"] = actions[0]
+	control_map["right"] = actions[1]
+	control_map["forward"] = actions[2]
+	control_map["jump"] = actions[3]
+	
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotation.y = clamp(head.rotation.y, -1, 1)
-		head.rotate_y(-event.relative.x * SENSITIVITY)
-		camera.rotate_x(-event.relative.y * SENSITIVITY)
+		head.rotate_y(-event.relative.x * SENSITIVITY * mouse_x_dir)
+		camera.rotate_x(-event.relative.y * SENSITIVITY * mouse_y_dir)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 
 
@@ -25,13 +56,13 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("move_jump") and is_on_floor():
+	if Input.is_action_just_pressed(control_map["jump"]) and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	# if Input.is_action_just_pressed("respawn"):
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir = Input.get_vector("move_left", "move_right", "move_back", "move_forward")
+	var input_dir = Input.get_vector(control_map["left"], control_map["right"], "move_back", control_map["forward"])
 
 	#Calculate the forward and right directions based on the camera orientation.
 	var forward_dir = -camera.global_transform.basis.z
@@ -39,7 +70,7 @@ func _physics_process(delta):
 
 	#Calculate the direction the player should move.
 	var direction = (forward_dir * input_dir.y + right_dir * input_dir.x).normalized()
-
+	var SPEED = SPEED * Global.speed_boost
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
