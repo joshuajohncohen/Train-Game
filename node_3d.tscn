@@ -37,6 +37,7 @@ shader = ExtResource("4_4arys")
 shader_parameter/pixel_size = 3.0
 shader_parameter/vhs_intensity = 3.0
 shader_parameter/noise_intensity = 0.15
+shader_parameter/high_freq_noise = 0.05
 shader_parameter/opacity = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4arys"]

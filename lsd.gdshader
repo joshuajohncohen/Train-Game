@@ -2,9 +2,10 @@ shader_type canvas_item;
 
 // Main texture and parameters
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_nearest;
-uniform float pixel_size : hint_range(1.0, 10.0) = 3.0;
-uniform float vhs_intensity : hint_range(0.0, 10.0) = 3.0;
-uniform float noise_intensity : hint_range(0.0, 1.0) = 0.15;
+uniform float pixel_size : hint_range(1.0, 10.0) = 3.30;
+uniform float vhs_intensity : hint_range(0.0, 10.0) = 3.30;
+uniform float noise_intensity : hint_range(0.0, 1.0) = 0.35;
+uniform float high_freq_noise : hint_range(0.0, 1.0) = 0.05; // From second shader
 uniform float opacity : hint_range(0.0, 1.0) = 0.5; 
 
 // Quick & dirty random function
@@ -35,7 +36,7 @@ void fragment() {
     vec2 uv = grid_uv;
     uv.x += glitch + tracking_glitch;
 
-    // Split RGB channels for the color fringe
+    // Split RGB channels for the color fringe (Chromatic Aberration)
     float r = texture(SCREEN_TEXTURE, uv + vec2(0.002 * vhs_intensity, 0.0)).r;
     float g = texture(SCREEN_TEXTURE, uv).g;
     float b = texture(SCREEN_TEXTURE, uv - vec2(0.002 * vhs_intensity, 0.0)).b;
@@ -45,9 +46,13 @@ void fragment() {
     float scanline = mod(floor(SCREEN_UV.y * screen_res.y / pixel_size), 2.0) * 0.15;
     vhs_color -= scanline;
 
-    // Static noise grain
+    // Static noise grain (Merged Logic)
+    // Coarse noise (Shader 1)
     float noise = (random(uv + floor(TIME * 20.0)) - 0.5) * noise_intensity;
-    vhs_color += noise;
+    // Fine noise (Shader 2)
+    float fine_noise = (random(uv + TIME) * 2.0 - 1.0) * high_freq_noise;
+    
+    vhs_color += noise + fine_noise;
 
     // Final mix - Lerp between clean and VHS look
     vec3 final_color = mix(original_color.rgb, vhs_color, opacity);
