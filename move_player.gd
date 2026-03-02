@@ -15,8 +15,14 @@ var control_map = {
 	"jump": "move_jump"
 }
 
-func _set_scramble(value):
-	Global.scramble_controls = value
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	# Connect to the global signal
+	Global.scramble_toggled.connect(_on_scramble_toggled)
+	# Initialize controls
+	_on_scramble_toggled(Global.scramble_controls)
+
+func _on_scramble_toggled(_is_scrambled: bool):
 	var actions = ["move_left", "move_right", "move_forward", "move_jump"]
 	if Global.scramble_controls:
 		actions.shuffle()
@@ -25,9 +31,6 @@ func _set_scramble(value):
 	control_map["right"] = actions[1]
 	control_map["forward"] = actions[2]
 	control_map["jump"] = actions[3]
-
-func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
