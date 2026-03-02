@@ -8,6 +8,24 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 
+var control_map = {
+	"left": "move_left",
+	"right": "move_right",
+	"forward": "move_forward",
+	"jump": "move_jump"
+}
+
+func _set_scramble(value):
+	Global.scramble_controls = value
+	var actions = ["move_left", "move_right", "move_forward", "move_jump"]
+	if Global.scramble_controls:
+		actions.shuffle()
+	
+	control_map["left"] = actions[0]
+	control_map["right"] = actions[1]
+	control_map["forward"] = actions[2]
+	control_map["jump"] = actions[3]
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -25,13 +43,13 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("move_jump") and is_on_floor():
+	if Input.is_action_just_pressed(control_map["jump"]) and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	# if Input.is_action_just_pressed("respawn"):
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir = Input.get_vector("move_left", "move_right", "move_back", "move_forward")
+	var input_dir = Input.get_vector(control_map["left"], control_map["right"], "move_back", control_map["forward"])
 
 	#Calculate the forward and right directions based on the camera orientation.
 	var forward_dir = -camera.global_transform.basis.z
