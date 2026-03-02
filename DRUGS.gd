@@ -5,7 +5,7 @@ extends Node
 @onready var effect_timer = Timer.new()
 
 var normal_speed: float = 1.0
-var effect_duration: float = 3.0
+var effect_duration: float = 10.0
 
 func _ready() -> void:
 	add_child(effect_timer)
@@ -25,7 +25,7 @@ func anti_sanityanters():
 		Global.scramble_controls = true
 		if shader_rect:
 			shader_rect.visible = true
-			effect_timer.start(effect_duration)
+		effect_timer.start(effect_duration)
 
 	elif the_random == 1:
 		print("FASTER")
@@ -47,7 +47,6 @@ func _on_effect_timeout():
 		shader_rect.visible = false
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	print(body)
 	if body is CharacterBody3D:
 		anti_sanityanters()
 
