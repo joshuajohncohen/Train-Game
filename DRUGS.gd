@@ -22,6 +22,7 @@ func anti_sanityanters():
 	
 	if the_random == 0:
 		print("DRUG TIME")
+		Global.scramble_controls = true
 		if shader_rect:
 			shader_rect.visible = true
 			effect_timer.start(effect_duration)
@@ -41,6 +42,7 @@ func apply_speed_change(new_speed: float):
 
 func _on_effect_timeout():
 	Global.speed_boost = normal_speed
+	Global.scramble_controls = false
 	if shader_rect:
 		shader_rect.visible = false
 
